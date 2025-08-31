@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Match.IA</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="img/logoAI.jpg" type="image/x-icon" />
+  </head>
+
+  <body data-theme="dark">
+    <div class="app-container">
+      <aside class="sidebar">
+        <h1>Match.IA</h1>
+        <nav>
+          <ul>
+            <li><button id="new-chat">✨ Nuevo Chat</button></li>
+            <li><button id="theme-toggle-btn">☀️ Modo Claro</button></li>
+          </ul>
+        </nav>
+        <div class="sidebar-footer">
+          <button class="footer-btn">🌐 Cambiar idioma</button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="main-header">
+          <h1>Match.IA</h1>
+          <button class="login-button">Iniciar sesión</button>
+        </header>
+
+        <div id="chat-messages" class="chat-messages">
+          <div id="placeholder" class="placeholder">
+            ¡Hola! Soy Match.IA 🤖. Pregúntame lo que quieras.
+          </div>
+        </div>
+
+        <form id="calc-form" class="input-area">
+          <div class="input-and-preview-wrapper">
+            <div id="image-preview-container" style="display: none;">
+                <img id="preview-image" src="#" alt="Image Preview">
+                <button type="button" id="remove-image-preview">X</button>
+            </div>
+            <div id="user-input-editable" contenteditable="true" placeholder="Escribe tu pregunta aquí..."></div>
+          </div>
+
+          <label for="file-upload" class="upload-button">
+            📷 Subir Foto
+          </label>
+          <input type="file" id="file-upload" accept="image/*" style="display: none;" />
+
+          <button type="submit">Enviar</button>
+        </form>
+      </main>
+    </div>
+    <script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+  svg: { fontCache: 'global' }
+};
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
