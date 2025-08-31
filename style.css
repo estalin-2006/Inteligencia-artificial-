@@ -1,0 +1,374 @@
+/* --- CSS Variables for Themes --- */
+:root {
+    /* Light Mode (Default) */
+    --bg-color-main: #f4f6f8;
+    --bg-color-app: #fff;
+    --text-color-primary: #333;
+    --text-color-secondary: #666;
+    --border-color: #eee;
+    --button-bg-color: #e0e0e0;
+    --button-hover-bg-color: #d0d0d0;
+    --main-header-bg: #fff;
+    --main-header-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    --chat-bg-color: #f4f6f8;
+    --input-area-bg: #fff;
+    --input-border-color: #ccc;
+    --user-message-bg: #d1e7ff;
+    --user-message-color: #0c3c60;
+    --bot-message-bg: #e5e5e5;
+    --bot-message-color: #222;
+    --placeholder-color: #bbb;
+}
+
+[data-theme="dark"] {
+    /* Dark Mode */
+    --bg-color-main: #12121e;
+    --bg-color-app: #1e1e2f;
+    --text-color-primary: #f4f6f8;
+    --text-color-secondary: #bbb;
+    --border-color: #3a3a5c;
+    --button-bg-color: #3a3a5c;
+    --button-hover-bg-color: #505072;
+    --main-header-bg: #1e1e2f;
+    --main-header-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    --chat-bg-color: #12121e;
+    --input-area-bg: #1e1e2f;
+    --input-border-color: #505072;
+    --user-message-bg: #3a3a5c;
+    --user-message-color: #f4f6f8;
+    --bot-message-bg: #2d2d41;
+    --bot-message-color: #f4f6f8;
+    --placeholder-color: #555;
+}
+
+
+/* --- GENERALES DE LA APP --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color-main);
+    color: var(--text-color-primary);
+    height: 100vh;
+    display: flex;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.app-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color-app);
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden;
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+    width: 240px;
+    background-color: var(--bg-color-app);
+    color: var(--text-color-primary);
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-right: 1px solid var(--border-color);
+    flex-shrink: 0;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.sidebar h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--text-color-primary);
+}
+
+.sidebar nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sidebar button {
+    background-color: var(--button-bg-color);
+    color: var(--text-color-primary);
+    border: none;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sidebar button:hover {
+    background-color: var(--button-hover-bg-color);
+    transform: translateY(-2px);
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-btn {
+    background-color: transparent;
+    color: var(--text-color-secondary);
+    border: none;
+    padding: 0.5rem 0.5rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.2s ease, color 0.2s ease;
+    width: 100%;
+    text-align: left;
+}
+
+.footer-btn:hover {
+    background-color: var(--button-hover-bg-color);
+    color: var(--text-color-primary);
+}
+
+/* --- MAIN CONTENT (Chat area) --- */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--chat-bg-color);
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.main-header {
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    background-color: var(--main-header-bg);
+    box-shadow: var(--main-header-box-shadow);
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-button {
+    background-color: #6c63ff;
+    color: #fff;
+    border: none;
+    padding: 0.9rem 1.4rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(108, 99, 255, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-button:hover {
+    background-color: #5a52e8;
+    transform: translateY(-2px);
+}
+
+.chat-messages {
+    padding: 1.5rem 2rem;
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    scroll-behavior: smooth;
+    transition: background-color 0.3s ease;
+}
+
+.placeholder {
+    text-align: center;
+    font-size: 1.6rem;
+    color: var(--placeholder-color);
+    margin-top: 5rem;
+    transition: opacity 0.3s;
+}
+
+.message {
+    max-width: 70%;
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    line-height: 1.5;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    white-space: pre-wrap;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.user {
+    align-self: flex-end;
+    background-color: var(--user-message-bg);
+    color: var(--user-message-color);
+    border-bottom-right-radius: 4px;
+}
+
+.bot {
+    align-self: flex-start;
+    background-color: var(--bot-message-bg);
+    color: var(--bot-message-color);
+    border-bottom-left-radius: 4px;
+}
+
+.bot.error {
+    background-color: #ffe0e0;
+    color: #cc0000;
+    border: 1px solid #ffaaaa;
+}
+
+/* --- INPUT AREA (Ajustes para el div contenteditable y la imagen) --- */
+.input-area {
+    display: flex;
+    padding: 1rem 2rem;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--input-area-bg);
+    align-items: flex-end;
+    gap: 0.8rem;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Nuevo contenedor para la previsualización y el input editable */
+.input-and-preview-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--input-border-color);
+    border-radius: 10px;
+    background-color: var(--bg-color-app);
+    min-height: 48px;
+    overflow: hidden;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Estilo para el div contenteditable */
+.input-area #user-input-editable {
+    flex-grow: 1;
+    outline: none;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: var(--text-color-primary);
+    font-size: 1rem;
+    min-height: 28px;
+    line-height: 1.5;
+    padding: 10px 15px;
+    cursor: text;
+    overflow-y: auto;
+    transition: color 0.3s ease;
+}
+
+/* Estilo para el placeholder del div contenteditable */
+.input-area #user-input-editable:empty:before {
+    content: attr(placeholder);
+    color: var(--placeholder-color);
+    pointer-events: none;
+    display: block;
+}
+
+/* Contenedor de la previsualización de la imagen */
+.input-area #image-preview-container {
+    padding: 5px 15px 0px 15px;
+    border-bottom: 1px solid var(--input-border-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+}
+
+/* Ajuste del tamaño de la imagen de previsualización */
+.input-area #preview-image {
+    max-width: 60px;
+    max-height: 60px;
+    object-fit: contain;
+    border-radius: 4px;
+    display: block;
+}
+
+/* Estilo del botón de eliminar (X) en la previsualización */
+.input-area #remove-image-preview {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 0px 6px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 0.8em;
+    line-height: 1.5;
+    position: absolute;
+    top: -8px;
+    right: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+
+/* Botones de Upload y Enviar */
+.input-area .upload-button,
+.input-area button[type="submit"] {
+    padding: 0.9rem 1.2rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    flex-shrink: 0;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.input-area .upload-button {
+    background-color: #28a745;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.input-area .upload-button:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+.input-area button[type="submit"] {
+    background-color: #0b5ed7;
+    color: white;
+}
+.input-area button[type="submit"]:hover {
+    background-color: #084db5;
+    transform: translateY(-1px);
+}
+
+/* Ajuste del tamaño de la imagen de previsualización */
+.input-area #preview-image {
+    max-width: 60px;
+    max-height: 60px;
+    object-fit: contain;
+    border-radius: 4px;
+    display: block;
+}
